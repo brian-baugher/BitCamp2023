@@ -20,10 +20,13 @@ friends = [     # database
     }
 ]
 
+progs = sorted(friends, key=lambda x:x['progress'])
+
 
 def friends_list_view(request):
     context = {
-        'friends' : friends
+        'friends' : friends,
+        'progs' : progs
     }
     # print(request.headers)
     return render(request, "friend.html", context)
