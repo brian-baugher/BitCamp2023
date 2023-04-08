@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # my apps
     'friends_list_app',
+    'myCal',
 
     # django apps
     'django.contrib.admin',
