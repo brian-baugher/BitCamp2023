@@ -5,9 +5,10 @@
     <title>Friends</title>
 </head>
 <body>
-    <h2>    Friends</h2>
-    <h5>    friend 1
-    friend 2
-    friend 3</h5>
+    {% for friend in friends %}
+        <h1>  {{ friend.name }}  </h1>
+        <p>Is: {{ friend.status }}</p>
+        <p>{{ friend.progress }}</p>
+    {% endfor %}
 </body>
 </html>
