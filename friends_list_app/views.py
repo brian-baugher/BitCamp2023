@@ -6,17 +6,17 @@ friends = [     # database
     {
         'name': 'Tony Matar',
         'status' : 'Working',
-        'progress' : '50%',
+        'progress' : '50',
     },
     {
         'name': 'Aarya Dubhashi',
         'status' : 'Chillin',
-        'progress' : '25%',
+        'progress' : '25',
     },
     {
         'name': 'Brian',
         'status': 'on his grind',
-        'progress': '10%'
+        'progress': '10'
     }
 ]
 
