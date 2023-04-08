@@ -17,6 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from to_do_list_app.views import (
+    home_screen_view,
+)
+from friends_list_app.views import (
+    friends_list_view,
+)
+from myCal.views import (
+    my_Cal_view,
+)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home_screen_view),
+    path('friends/', friends_list_view),
+    path('myCal/', my_Cal_view)
 ]
