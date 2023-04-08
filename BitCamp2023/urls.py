@@ -23,6 +23,7 @@ from friends_list_app.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('friends/', friends_list_view),
-    path('', include('to_do_list_app.urls'))
+    path('', include('to_do_list_app.urls'), name='home),
+    path('friends/', friends_list_view, name='friends')
+
 ]

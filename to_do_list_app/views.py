@@ -8,6 +8,7 @@ from .models import Task
 
 # Create your views here.
 
+
 class TaskList(ListView):
     model = Task
     context_object_name = 'tasks'
@@ -31,5 +32,3 @@ class DeleteView(DeleteView):
     model = Task
     context_object_name = 'task'
     success_url = reverse_lazy('tasks')
-
-

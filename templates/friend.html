@@ -1,13 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Friends</title>
-</head>
-<body>
-    <h2>    Friends</h2>
-    <h5>    friend 1
-    friend 2
-    friend 3</h5>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+    <h1>Friends</h1>
+{% endblock title %}
+
+{% block content %}
+    {% for friend in friends %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ friend.name }}</a>
+                    <small class="text-muted">{{ friend.status}}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ friend.name }}</a></h2>
+                <progress value = {{ friend.progress }} max = "100"/>
+                <p class="article-content">{{ friend.progress }}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
