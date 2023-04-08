@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # my apps
-    'to_do_list_app',
     'friends_list_app',
 
     # django apps
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'to_do_list_app.apps.DevelopmentConfig',
 ]
 
 MIDDLEWARE = [
