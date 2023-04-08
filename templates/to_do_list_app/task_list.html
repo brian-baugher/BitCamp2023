@@ -1,30 +1,20 @@
 {% extends 'base.html' %}
 
 {% block title %} <h1> To Do List </h1> {% endblock title %}
-<a href=" {% url 'task-create' %}">Add item</a>
+
 {% block content %}
-    {% for task in tasks %}
-        <article class="media content-section">
-            <div class="media-body">
-                <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ friend.name }}</a>
-                    <small class="text-muted">{{ friend.status}}</small>
-                </div>
-                <h2><a class="article-title" href="#">{{ friend.name }}</a></h2>
-                <progress value = {{ friend.progress }} max = "100"/>
-                <p class="article-content">{{ friend.progress }}</p>
-            </div>
-        </article>
-    {% endfor %}
+    
     <table>
         <tr>
             <th>Items </th>
+            <a href=" {% url 'task-create' %}">Add item</a>
             <th></th>
             <th></th>
         </tr>
         {% for task in tasks %}
         <tr>
             <td>{{task.title}}</td>
+            <td>{{task.created}}</td>
             <td><a href = "{% url 'task' task.id %}">View</a></td>
             <td><a href = "{% url 'task-update' task.id %}">Edit</a></td>
             <td><a href = "{% url 'task-delete' task.id %}">Delete</a></td>
