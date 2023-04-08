@@ -26,6 +26,6 @@ from friends_list_app.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_screen_view),
-    path('friends/', friends_list_view)
+    path('', home_screen_view, name='home'),
+    path('friends/', friends_list_view, name='friends')
 ]

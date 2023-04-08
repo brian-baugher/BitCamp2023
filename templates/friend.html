@@ -6,8 +6,15 @@
 
 {% block content %}
     {% for friend in friends %}
-        <h1>  {{ friend.name }}  </h1>
-        <p>Is: {{ friend.status }}</p>
-        <p>{{ friend.progress }}</p>
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ friend.name }}</a>
+                    <small class="text-muted">{{ friend.status}}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ friend.name }}</a></h2>
+                <p class="article-content">{{ friend.progress }}</p>
+            </div>
+        </article>
     {% endfor %}
 {% endblock content %}
