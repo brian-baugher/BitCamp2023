@@ -1,37 +1,23 @@
 {% extends 'base.html' %}
 
 {% block title %} <h1> To Do List </h1> {% endblock title %}
-<a href=" {% url 'task-create' %}">Add item</a>
+
 {% block content %}
+    <a href=" {% url 'task-create' %}">Add item</a>
     {% for task in tasks %}
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ friend.name }}</a>
-                    <small class="text-muted">{{ friend.status}}</small>
+                    <td><a class="mr-2" href="{% url 'task' task.id %}">View</a></td>
+
                 </div>
-                <h2><a class="article-title" href="#">{{ friend.name }}</a></h2>
-                <progress value = {{ friend.progress }} max = "100"/>
-                <p class="article-content">{{ friend.progress }}</p>
+                <h2><a class="article-title" href="#">{{task.title}}</a></h2>
+                <td><a href = "{% url 'task-update' task.id %}">Edit</a></td>
+                <td><a href = "{% url 'task-delete' task.id %}">Delete</a></td>
             </div>
         </article>
+    {% empty %}
+        <h3> No Items in List </h3>
     {% endfor %}
-    <table>
-        <tr>
-            <th>Items </th>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for task in tasks %}
-        <tr>
-            <td>{{task.title}}</td>
-            <td><a href = "{% url 'task' task.id %}">View</a></td>
-            <td><a href = "{% url 'task-update' task.id %}">Edit</a></td>
-            <td><a href = "{% url 'task-delete' task.id %}">Delete</a></td>
-        </tr>
-        {% empty %}
-            <h3> No Items in List </h3>
-        {% endfor%}
-    </table>
 {% endblock content %}
 
