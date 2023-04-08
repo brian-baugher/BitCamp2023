@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # my apps
-    'home_screen_app',
+    'to_do_list_app',
 
     # django apps
     'django.contrib.admin',

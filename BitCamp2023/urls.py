@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from home_screen_app.views import (
+from to_do_list_app.views import (
     home_screen_view,
 )
 
