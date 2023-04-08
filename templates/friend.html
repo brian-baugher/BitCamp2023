@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Friends</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}
+    <h1>Friends</h1>
+{% endblock title %}
+
+{% block content %}
     {% for friend in friends %}
         <h1>  {{ friend.name }}  </h1>
         <p>Is: {{ friend.status }}</p>
         <p>{{ friend.progress }}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock content %}
