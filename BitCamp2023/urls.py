@@ -20,10 +20,13 @@ from django.urls import path, include
 from friends_list_app.views import (
     friends_list_view,
 )
+from myCal.views import (
+    my_Cal_view,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('to_do_list_app.urls'), name='home'),
-    path('friends/', friends_list_view, name='friends')
-
+    path('friends/', friends_list_view, name='friends'),
+    path('myCal/', my_Cal_view)
 ]
