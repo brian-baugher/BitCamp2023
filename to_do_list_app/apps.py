@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class DevelopmentConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'home_screen_app'
+    name = 'to_do_list_app'
