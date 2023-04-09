@@ -1,6 +1,15 @@
+{% extends 'to_do_list_app/main.html' %}
+{% block content%}
+<div class = "sun"></div>
+
+<div class = "login">
 <h1>Login</h1>
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
     <input type = "submit" value = "Login">
 </form>
+</div>
+
+
+{% endblock content%}
