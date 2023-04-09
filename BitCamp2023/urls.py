@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from friends_list_app import views
 
 from friends_list_app.views import (
     friends_list_view,
@@ -27,6 +28,7 @@ from myCal.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('to_do_list_app.urls'), name='home'),
+    path ('friend-add/', views.FriendAdd.as_view(), name = 'friend-add'),
     path('friends/', friends_list_view, name='friends'),
     path('myCal/', my_Cal_view, name='mycal')
 ]
