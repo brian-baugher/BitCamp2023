@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}<h3>Task Form</h3>{% endblock title %}
+{% block content %}
+    <form method = "POST">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type = "submit" value = "Submit">
+    </form>
+{% endblock content %}

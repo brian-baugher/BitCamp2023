@@ -14,7 +14,7 @@
                 </div>
                 <h2><a class="article-title" href="#">{{ friend.name }}</a></h2>
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: {{  friend.progress }}%;" aria-valuenow={{ friend.progress }}aria-valuemin="0" aria-valuemax="100">{{ friend.progress }}</div>
+                    <div class="progress-bar" role="progressbar" style="width: {{  friend.progress }}%;" aria-valuenow={{ friend.progress }}aria-valuemin="0" aria-valuemax="100">{{ friend.progress }}%</div>
                 </div>
 
             </div>
@@ -31,6 +31,7 @@
             {% for name in names %}
                 <li class="list-group-item list-group-item-light">{{ name }}</li>
             {% endfor %}
+            <a class="btn-custom" href="{% url 'friend-add' %}" role="button">Add friend</a>
             </ul>
             </p>
         </div>
