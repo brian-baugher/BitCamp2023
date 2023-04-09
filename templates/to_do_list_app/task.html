@@ -1,9 +1,38 @@
 {% extends 'base.html' %}
+
 {% block title %}<h3></h3>{% endblock title %}
 {% block content %}
-    <h1> Task: {{task}} </h1>
-    <div class="content-section" style="width: 70%">
-        Description: {{task.description}}
-    </div>
+<style>
+    body{
+        background-color: #f5c77e;
+        
+    }
+    .rectangle{
+        height: 550px;
+        width: 500px;
+        color:#2c2f30;
+        background-color: #7898aa;
+        position: absolute;
+        left: 100px;
+        text-align: left;
+        border-radius: 10%;
+    }
 
+</style>
+<div class="rectangle">
+    <h1 style="color:#272f30;top:30px;position: absolute;left :15px"> Task: {{task}} 
+
+    </h1>
+    <h4 style="color:#272f30;position: absolute;top:100px;left:15px">
+        Due Date: {{task.deadline}}
+    </h4>
+    <h3 style="color: #272f30;position: absolute;top:160px;left:15px;">
+        Notes: 
+    </h3>
+    <div class="content-section" style="width: 400px;height: 300px;border-radius: 10%; background-color: #648090; border: None;
+    position: absolute;top:220px;left:15px;">
+        {{task.description}}
+    </div>
+</div>
+    
 {% endblock content %}
