@@ -191,7 +191,7 @@ def friends_list_view(request):
     for task in taskos:
         if task['complete']:
             num_complete += 1
-        ratio = float(num_complete)/float(num_tasks)
+        ratio = int((float(num_complete)/float(num_tasks)) * 100)
         ratios[task['user_id']] = ratio
 
 
