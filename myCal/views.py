@@ -4,25 +4,8 @@ from calendar import HTMLCalendar
 from datetime import date
 from .models import Event
 
+
 class Calendar(HTMLCalendar):
-
-    events = [     # database
-        {
-            'event': 'Event1',
-            'day' : 3,
-        },
-        {
-            'event': 'Event2',
-            'day' : 23,
-        },
-        {
-            'event': 'Event3',
-            'day': 6,
-        }
-    ]
-
-
-
     def __init__(self, year=None, month=None):
         self.year = year
         self.month = month
@@ -71,4 +54,13 @@ def my_Cal_view(request):
     # instantiate calendar
     cal = Calendar(int(year), int(month))
     # render calendar template with calendar table
-    return render(request, 'myCal.html', {'calendar': mark_safe(cal.formatmonth(withyear=True)), 'events': events})
+
+    events_list = [
+        [('', ''), ('', ''), ('', ''), ('1', ""), ('2', ), ('3', ''), ('4', '')],
+        [('5', ''), ('6', ''), ('7', ''), ('8', ''), ('9', ''), ('10', 'CS Proj'), ('11', 'English')],
+        [('12', ''), ('13', ''), ('14', ''), ('15', ''), ('16', ''), ('17', ''), ('18', '')],
+        [('19', ''), ('20', ''), ('21', 'Paper'), ('22', ''), ('23', ''), ('24', ''), ('25', '')],
+        [('26', ''), ('27', ''), ('28', ''), ('29', ''), ('30', ''), ('', ''), ('', '')],
+    ]
+
+    return render(request, 'myCal.html', {'calendar': mark_safe(cal.formatmonth(withyear=True)), 'events': events_list})
