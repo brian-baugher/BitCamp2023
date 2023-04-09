@@ -9,12 +9,12 @@
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ friend.name }}</a>
-                    <small class="text-muted">{{ friend.status}}</small>
+                    <a class="mr-2" href="#">{{ friend.username }}</a>
+                    <small class="text-muted">Is Tired</small>
                 </div>
-                <h2><a class="article-title" href="#">{{ friend.name }}</a></h2>
+                <h2><a class="article-title" href="#">{{ friend.username }}</a></h2>
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: {{  friend.progress }}%;" aria-valuenow={{ friend.progress }}aria-valuemin="0" aria-valuemax="100">{{ friend.progress }}%</div>
+                    <div class="progress-bar" role="progressbar" style="width: {{  friend.progress }}%;" aria-valuenow={{ friend.ratio }}aria-valuemin="0" aria-valuemax="100">{{ friend.ratio }}%</div>
                 </div>
 
             </div>
@@ -28,8 +28,8 @@
             <h3>Leaderboard</h3>
             <p class='text-muted'>Who's winning?
             <ul class="list-group">
-            {% for name in names %}
-                <li class="list-group-item list-group-item-light">{{ name }}</li>
+            {% for friend in friends %}
+                <li class="list-group-item list-group-item-light">{{ friend.username }}      {{ friend.ratio }}%</li>
             {% endfor %}
             <a class="btn-custom" href="{% url 'friend-add' %}" role="button">Add friend</a>
             </ul>
