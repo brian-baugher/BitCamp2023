@@ -58,13 +58,11 @@ def my_Cal_view(request):
     # render calendar template with calendar table
 
     model = Task
-    title_and_days = list(model.objects.filter(user_id=curr_user).values('title', 'deadline'))
-
-    print(title_and_days)
+    title_and_days = list(model.objects.filter(user_id=curr_user).values('title', 'deadline', 'complete'))
 
     events_list = [
         [['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['1', ""]],
-        [['2',''], ['3', ''], ['4', ''], ['5', ''], ['6', ''], ['7', ''], ['8', '']],
+        [['2', ''], ['3', ''], ['4', ''], ['5', ''], ['6', ''], ['7', ''], ['8', '']],
         [['9', ''], ['10', ''], ['11', ''], ['12', ''], ['13', ''], ['14', ''], ['15', '']],
         [['16', ''], ['17', ''], ['18', ''], ['19', ''], ['20', ''], ['21', ''], ['22', '']],
         [['23', ''], ['24', ''], ['25', ''], ['26', ''], ['27', ''], ['28', ''], ['29', '']],
@@ -75,10 +73,8 @@ def my_Cal_view(request):
         date1 = str(banana['deadline'].day)
         for list1 in events_list:
             for tuple1 in list1:
-                if tuple1[0] == date1:
+                if tuple1[0] == date1 and not banana['complete']:
                     tuple1[1] = banana['title']
                     print(tuple1)
-
-
 
     return render(request, 'myCal.html', {'calendar': mark_safe(cal.formatmonth(withyear=True)), 'events': events_list})
