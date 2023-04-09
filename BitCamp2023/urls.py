@@ -28,5 +28,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('to_do_list_app.urls'), name='home'),
     path('friends/', friends_list_view, name='friends'),
-    path('myCal/', my_Cal_view)
+    path('myCal/', my_Cal_view, name='mycal')
 ]
