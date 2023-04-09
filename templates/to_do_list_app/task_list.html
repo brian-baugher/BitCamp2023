@@ -1,34 +1,44 @@
 {% extends 'base.html' %}
 
 
-{% block title %} <h1> To Do List </h1> {% endblock title %}
+{% block title %} <h1 align="center"> {{request.user}}'s To Do List </h1>{% endblock title %}
 
 
 {% block content %}
-    <table>
-        <tr>
-            {% if request.user.is_authenticated %}
-            <p>{{request.user}}</p>
-            <a href = "{% url 'logout' %}">Logout</a>
-            {% else %}
-            <a href = "{% url 'login' %}">Login</a>
-            {% endif %}
-            <th>Items </th>
-            <a href=" {% url 'task-create' %}">Add item</a>
-            <th></th>
-            <th></th>
-        </tr>
-        {% for task in tasks %}
-        <tr>
-            <td>{{task.title}}</td>
-            <td>{{task.created}}</td>
-            <td><a href = "{% url 'task' task.id %}">View</a></td>
-            <td><a href = "{% url 'task-update' task.id %}">Edit</a></td>
-            <td><a href = "{% url 'task-delete' task.id %}">Delete</a></td>
-        </tr>
-        {% empty %}
-            <h3> No Items in List </h3>
-        {% endfor%}
-    </table>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for task in tasks %}
+        <article class="media content-section" style="margin: auto">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href = "{% url 'task' task.id %}">View</a>
+                    <a class="mr-2" href = "{% url 'task-update' task.id %}">Edit</a>
+                    <a class="mr-2" href = "{% url 'task-delete' task.id %}">Delete</a>
+                </div>
+                <h2><a class="article-title">{{task.title}} </a></h2>
+                <h6>{{task.deadline}}</h6>
+
+            </div>
+        </article>
+    {% empty %}
+        <h3> No Items in List </h3>
+    {% endfor %}
 {% endblock content %}
+
+{% block sidebar %}
+    <style>
+        .btn-custom {
+            padding: 15px;
+            font-size: 30px;
+            fill: #444444;
+            text-align: center;
+            align-self: center;
+            background: #444444;
+            color: white;
+        }
+    </style>
+    <a class="btn-custom" href="{% url 'task-create' %}" role="button">Add new task</a>
+{% endblock sidebar %}
 
