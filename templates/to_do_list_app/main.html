@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>To Do Items</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: #F5C77E;
+            font-family: 'Inter', sans-serif;
+            padding-top: 50px;
+        }
+
+        .login{
+            box-sizing: border-box;
+            position: absolute;
+            width: 1000px;
+            height: 450px;
+            left: 210px;
+            top: 120px;
+            background: #053F5C;
+            border: 1px solid #000000;
+            box-shadow: 5px 15px 6px 3px rgba(0, 0, 0, 0.29);
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sun{
+            position: absolute;
+            width: 180px;
+            height: 170px;
+            left: 1100px;
+            top: 50px;
+            border-radius: 50%;
+            background: #EEA32D;   
+        }
+
+        .image-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }.image-container img {
+            width: 100px; /* Set the width and height according to your image size */
+            height: 100px;
+        }
+        .login.button{
+            color: aqua;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class = "container">
+        {% block content%}
+
+        {% endblock content%}
+    </div>
+</body>
+</html>

@@ -20,7 +20,7 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('tasks')
-        
+    
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'

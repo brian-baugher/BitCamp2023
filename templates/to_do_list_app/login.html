@@ -1,6 +1,50 @@
-<h1>Login</h1>
+{% extends 'to_do_list_app/main.html' %}
+{% block content%}
+<div class = "sun"></div>
+
+<style>
+    label{
+        font-size: 20px;
+        display: block;
+        
+    }
+    input[type=text] {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        background: #4385aa;
+        border: none;
+        border-radius: 10px; 
+        color: black;
+        font-size: 20px;
+      }
+      input[type=password]{
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        background: #4385aa;
+        border: none;
+        border-radius: 10px; 
+        color: black;
+        font-size: 20px;
+      }
+      input[type = submit]{
+        background: #4385aa;
+
+      }
+</style>
+
+<img class = "image-container" src = "./image(1).png">
+
+<div class = "login">
+<h1>Sign In</h1>
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type = "submit" value = "Login">
+    <input type = "submit" class = "button" value = "Login">
 </form>
+</div>
+
+
+{% endblock content%}
+
