@@ -185,14 +185,17 @@ def friends_list_view(request):
     taskos = list(taskModel.objects.filter(user_id__in=friend2).values())
     usys = list(User.objects.filter(id__in=friend2).values())
     #print(usys)
-    num_complete = 0
-    num_tasks = len(taskos)
+
     ratios = {}
-    for task in taskos:
-        if task['complete']:
-            num_complete += 1
-        ratio = int((float(num_complete)/float(num_tasks)) * 100)
-        ratios[task['user_id']] = ratio
+    for usy in usys:
+        num_complete = 0
+        new_taskos = list(taskModel.objects.filter(user_id=usy['id']).values())
+        num_tasks = len(new_taskos)
+        for task in new_taskos:
+            if task['complete']:
+                num_complete += 1
+            ratio = int((float(num_complete)/float(num_tasks)) * 100)
+            ratios[task['user_id']] = ratio
 
 
     list2 = []
