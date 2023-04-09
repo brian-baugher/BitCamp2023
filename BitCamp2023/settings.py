@@ -79,12 +79,19 @@ WSGI_APPLICATION = 'BitCamp2023.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+# "postgresql://priyanka:<ENTER-SQL-USER-PASSWORD>@clumsy-bobcat-3667.g8z.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'ENGINE': 'django_cockroachdb',
+        'NAME': 'defaultdb',
+        'USER': 'priyanka',
+        'PASSWORD': 'lebVPD-_XVQD-eYSApjsbg', # NOTE FROM ANDREW: don't commit actual passwords in a real situation. We're doing it here because it's a hackathon. But don't build bad habits when doing things irl.
+        'HOST': 'clumsy-bobcat-3667.g8z.cockroachlabs.cloud',
+        'PORT': '26257',
+        'OPTIONS': {
+            'sslmode': 'verify-full'
+        },
+    },
 }
 
 
