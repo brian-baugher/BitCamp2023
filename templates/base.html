@@ -12,8 +12,9 @@
 
 
     <link rel="stylesheet" type="text/css" href="{%  static 'friends/main.css' %}">
-
-    {% block title %} } {% endblock title %}
+    <div align="center" class="site-header" style="margin: auto" >
+        {% block title %} } {% endblock title %}
+    </div>
 </head>
 
 <body>
@@ -28,19 +29,19 @@
                     <div class="navbar-nav mr-auto">
                         <a class="nav-item nav-link" href="{% url 'tasks' %}">To-Do List</a>
                         <a class="nav-item nav-link" href="{% url 'friends' %}">Friends</a>
+                        <a class="nav-item nav-link" href="{% url 'mycal' %}">Calendar</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="#">Login</a>
-                        <a class="nav-item nav-link" href="#">Register</a>
+                        <a class="nav-item nav-link" href={% url 'logout' %}>Logout</a>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
     <main role="main" class="container">
-        <div class="row">
-            <div class="col-md-8">
+        <div class="row" style="margin: auto">
+            <div class="col-md-8" style="margin: auto;">
                 {% block content %}{% endblock content %}
             </div>
             {% block sidebar %} {% endblock sidebar %}
