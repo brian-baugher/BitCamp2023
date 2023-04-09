@@ -16,7 +16,7 @@ friends = [     # database
     {
         'name': 'Brian',
         'status': 'on his grind',
-        'progress': '10'
+        'progress': '90'
     }
 ]
 
