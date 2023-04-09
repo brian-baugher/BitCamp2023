@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 
-{% block title %} <h1> To Do List </h1> {% endblock title %}
+{% block title %} <h1 align="center"> {{request.user}}'s To Do List </h1>{% endblock title %}
 
 
 {% block content %}
@@ -30,5 +30,21 @@
             <h3> No Items in List </h3>
         {% endfor%}
     </table>
+
 {% endblock content %}
+
+{% block sidebar %}
+    <style>
+        .btn-custom {
+            padding: 15px;
+            font-size: 30px;
+            fill: #444444;
+            text-align: center;
+            align-self: center;
+            background: #444444;
+            color: white;
+        }
+    </style>
+    <a class="btn-custom" href="{% url 'task-create' %}" role="button">Add new task</a>
+{% endblock sidebar %}
 

@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+{% block title %}<h3></h3>{% endblock title %}
 {% block content %}
     <h1> Task: {{task}} </h1>
+    <div class="content-section" style="width: 70%">
+        Description: {{task.description}}
+    </div>
+
 {% endblock content %}
