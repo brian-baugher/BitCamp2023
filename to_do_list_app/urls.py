@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import TaskList, TaskDetail, TaskCreate, TaskUpdate, DeleteView, CustomLoginView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
@@ -11,3 +12,5 @@ urlpatterns = [
     path ('task-update/<int:pk>/', TaskUpdate.as_view(), name = 'task-update'),
     path ('task-delete/<int:pk>/', DeleteView.as_view(), name = 'task-delete'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
