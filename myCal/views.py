@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 from calendar import HTMLCalendar
 from datetime import date
 from .models import Event
+from to_do_list_app.models import Task
 
 
 class Calendar(HTMLCalendar):
@@ -44,6 +45,7 @@ class Calendar(HTMLCalendar):
 
 
 def my_Cal_view(request):
+    curr_user = request.user.id
     # today's date
     today = date.today()
     # get year and month from URL, or use current year/month
@@ -55,12 +57,28 @@ def my_Cal_view(request):
     cal = Calendar(int(year), int(month))
     # render calendar template with calendar table
 
+    model = Task
+    title_and_days = list(model.objects.filter(user_id=curr_user).values('title', 'deadline'))
+
+    print(title_and_days)
+
     events_list = [
-        [('', ''), ('', ''), ('', ''), ('1', ""), ('2', ), ('3', ''), ('4', '')],
-        [('5', ''), ('6', ''), ('7', ''), ('8', ''), ('9', ''), ('10', 'CS Proj'), ('11', 'English')],
-        [('12', ''), ('13', ''), ('14', ''), ('15', ''), ('16', ''), ('17', ''), ('18', '')],
-        [('19', ''), ('20', ''), ('21', 'Paper'), ('22', ''), ('23', ''), ('24', ''), ('25', '')],
-        [('26', ''), ('27', ''), ('28', ''), ('29', ''), ('30', ''), ('', ''), ('', '')],
+        [['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['1', ""]],
+        [['2',''], ['3', ''], ['4', ''], ['5', ''], ['6', ''], ['7', ''], ['8', '']],
+        [['9', ''], ['10', ''], ['11', ''], ['12', ''], ['13', ''], ['14', ''], ['15', '']],
+        [['16', ''], ['17', ''], ['18', ''], ['19', ''], ['20', ''], ['21', ''], ['22', '']],
+        [['23', ''], ['24', ''], ['25', ''], ['26', ''], ['27', ''], ['28', ''], ['29', '']],
+        [['30', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', ''], ['', '']]
     ]
+
+    for banana in title_and_days:
+        date1 = str(banana['deadline'].day)
+        for list1 in events_list:
+            for tuple1 in list1:
+                if tuple1[0] == date1:
+                    tuple1[1] = banana['title']
+                    print(tuple1)
+
+
 
     return render(request, 'myCal.html', {'calendar': mark_safe(cal.formatmonth(withyear=True)), 'events': events_list})
