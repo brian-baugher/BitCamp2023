@@ -1,9 +1,74 @@
 {% extends 'base.html' %}
-{% block title %}<h3>Task Form</h3>{% endblock title %}
+{% block title %}<h3 style="color: black;position: dynamic; padding-right: 320px;">Task Form: </h3>{% endblock title %}
 {% block content %}
+<style>
+    body{
+        background-color: #F5C77E;
+        font-family: 'Inter', sans-serif;
+    }
+    label{
+        color: black;
+        font-size: 30px;
+        height:100px;
+        left:150px;
+        padding-left: 25px;
+    }
+    input[name = deadline]{
+        background-color: #648090;
+        border: none;
+        border-radius: 10px;
+        height:50px;
+        position: absolute;
+        top:420px;
+        left:18px;
+    }
+    input[name = title]{
+        background-color: #648090;
+        border: none;
+        border-radius: 10px;
+        height:50px;
+        width:300px;
+        position: absolute;
+        top:50px;
+        left:18px;
+    }
+    input[type = checkbox]{
+        position: absolute;
+        height:30px;
+        width:40px;
+        top:260px;
+    }
+    input[type = submit]{
+        background-color: #648090;
+        border-color: None;
+        position: absolute;
+        top:500px;
+        left: 30px;
+    }
+    textarea{
+        background-color: #648090;
+        height:80px;
+        position: absolute;
+        top:170px;
+        left:18px;
+        border-radius: 10px;
+    }
+    .rectangle{
+        height: 550px;
+        width:500px;
+        background-color: #7898aa;
+        position: absolute;
+        left:120px;
+        border-radius: 10%;
+
+    }
+</style>
+<div class="rectangle">
     <form method = "POST">
         {%csrf_token%}
         {{form.as_p}}
         <input type = "submit" value = "Submit">
     </form>
+</div>
+   
 {% endblock content %}
