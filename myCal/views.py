@@ -5,6 +5,24 @@ from datetime import date
 from .models import Event
 
 class Calendar(HTMLCalendar):
+
+    events = [     # database
+        {
+            'event': 'Event1',
+            'day' : 3,
+        },
+        {
+            'event': 'Event2',
+            'day' : 23,
+        },
+        {
+            'event': 'Event3',
+            'day': 6,
+        }
+    ]
+
+
+
     def __init__(self, year=None, month=None):
         self.year = year
         self.month = month
