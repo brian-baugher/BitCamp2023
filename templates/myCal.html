@@ -2,7 +2,7 @@
 
 {% block content %}
     <!DOCTYPE html>
-    <html>
+    <html lang="">
     <head>
         <meta charset="utf-8">
         <title>My Calendar</title>
@@ -14,12 +14,12 @@
             td {
                 text-align: center;
                 border: 1px solid #ddd;
-                padding: 15px;
+                padding: 0px;
                 height: 95px;
                 vertical-align: top;
                 position: relative;
                 font-size: 10px;
-                width: calc(100% / 7);
+                width: calc(100%/7);
             }
             th {
                 background-color: #f2f2f2;
@@ -31,19 +31,9 @@
                 vertical-align: top;
                 position: relative;
             }
-            td.blue-line::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 0;
-                width: 100%;
-                height: 15px;
-                background-color: lemonchiffon;
-                transform: translateY(-50%);
-            }
             .today {
                 background-color: #4CAF50;
-                color: white;
+                color: black;
             }
         </style>
     </head>
@@ -62,51 +52,24 @@
         </tr>
         </thead>
         <tbody>
+        {% for row in events %}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>1</td>
-            <td class="blue-line">2</td>
-            <td>3</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-        </tr>
-        <tr>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-        </tr>
-        <tr>
-            <td>19</td>
-            <td>20</td>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-        </tr>
-        <tr>
-            <td>26</td>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
-            <td>30</td>
-            <td></td>
-            <td></td>
-        </tr>
+            {% for event1 in row %}
+                {% if event1.0 %}
+                    <td>{{ event1.0 }}
+                    {% if event1.1 %}
+                        <div style="background-color: #5b80b2; transform: translateY(50%);">
+                            <p>{{ event1.1 }}</p>
+                        </div>
+                    {%  endif %}
+                {% else %}
+                    <td> <div style="background-color: #e4e4e4; height: 100%; width: 100%;">
+
+                    </div>
+                {% endif %}
+                </td>
+            {% endfor %}
+        {% endfor %}
         </tbody>
     </table>
     </body>
