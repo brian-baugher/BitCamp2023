@@ -23,15 +23,14 @@
 {% endblock content %}
 
 {% block sidebar %}
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="content-section">
             <h3>Leaderboard</h3>
             <p class='text-muted'>Who's winning?
             <ul class="list-group">
-                <li class="list-group-item list-group-item-light">filler</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+            {% for name in names %}
+                <li class="list-group-item list-group-item-light">{{ name }}</li>
+            {% endfor %}
             </ul>
             </p>
         </div>
