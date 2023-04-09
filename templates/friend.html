@@ -5,16 +5,21 @@
 {% endblock title %}
 
 {% block content %}
+    <style>
+        body{
+            background-color: #F5C77E;
+        }
+    </style>
     {% for friend in friends %}
-        <article class="media content-section">
-            <div class="media-body">
+        <article class="media content-section"style="background-color: #648090; border-color: #648090"  >
+            <div class="media-body" style="background-color: #648090; border-color: #648090">
                 <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ friend.username }}</a>
-                    <small class="text-muted">Is Tired</small>
+                    <a class="mr-2" class="text-light">{{ friend.username }}</a>
+                    <small class="text-bold">Is Tired</small>
                 </div>
-                <h2><a class="article-title" href="#">{{ friend.username }}</a></h2>
+                <h2><a class="article-title" class="text-light">{{ friend.username }}</a></h2>
                 <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: {{ friend.ratio }}%;" aria-valuenow={{ friend.ratio }} aria-valuemin="0" aria-valuemax="100">{{ friend.ratio }}%</div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: {{ friend.ratio }}%;" aria-valuenow={{ friend.ratio }} aria-valuemin="0" aria-valuemax="100">{{ friend.ratio }}%</div>
                 </div>
 
 
@@ -24,15 +29,15 @@
 {% endblock content %}
 
 {% block sidebar %}
-    <div class="col-md-3">
-        <div class="content-section">
-            <h3>Leaderboard</h3>
-            <p class='text-muted'>Who's winning?
+    <div class="col-md-3" style="background: #648090">
+        <div class="content-section"style="background: #053F5C">
+            <h3 align="center" class="text-light" >Leaderboard </h3>
+            <p align = center class="text-light"> Who's winning? </p>
             <ul class="list-group">
             {% for friend in friends %}
-                <li class="list-group-item list-group-item-light">{{ friend.username }}      {{ friend.ratio }}%</li>
+                <li align = center style="text-overline-color: white"  class="list-group-item list-group-item-light "style="background: #053F5C" >{{ friend.username }}      {{ friend.ratio }}%</li>
             {% endfor %}
-            <a class="btn-custom" href="{% url 'friend-add' %}" role="button">Add friend</a>
+            <a align = center class="text-light" class="btn-custom" href="{% url 'friend-add' %}" role="button">Add friend</a>
             </ul>
             </p>
         </div>
