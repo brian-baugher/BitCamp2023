@@ -1,5 +1,6 @@
 {% extends 'to_do_list_app/main.html' %}
 {% block content%}
+{% load static %}
 <div class = "sun"></div>
 
 <style>
@@ -30,20 +31,30 @@
       }
       input[type = submit]{
         background: #4385aa;
-
-      }
+        border: none;
+        font-size: 30px;
+        color: black;
+        }
+        li{
+            font-size: 10px;
+        }
 </style>
 
-<img class = "image-container" src = "./image(1).png">
+
+<img class = "image-container" src="{% static "to_do_list_app/media/image(2).png" %}" />
+
 
 <div class = "login">
 <h1>Sign In</h1>
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type = "submit" class = "button" value = "Login">
+    <input type = "submit" class = "button" value = ">">
 </form>
+
 </div>
+
+
 
 
 {% endblock content%}
